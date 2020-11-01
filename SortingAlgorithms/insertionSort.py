@@ -1,15 +1,15 @@
-def insertionSort(arr):
-    for i in range(1, len(arr)):
-        currentNum = arr[i]
+def insertion_sort(arr):
+    for j in range(1, len(arr)):
+        key = arr[j]
 
-        j = i - 1
-        while j >= 0 and currentNum < arr[j]:
-            arr[j+1] = arr[j]
-            j -= 1
+        i = j - 1
+        while i > 0 and key < arr[i]:
+            arr[i+1] = arr[i]
+            i -= 1
 
-        arr[j+1] = currentNum
-        return arr
+        arr[i + 1] = key
+    return arr
 
 
 inputArr = [1, 5, 2, 7, 3, 9]
-print(insertionSort(inputArr))
+print(insertion_sort(inputArr))
