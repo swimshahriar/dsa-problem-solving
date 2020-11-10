@@ -2,7 +2,6 @@ if __name__ == '__main__':
     N = int(input(""))
 
     list = []
-    user_input_list = []
 
     for _ in range(N):
         query = input().split()
