@@ -7,7 +7,7 @@ function twoNumSum(arr: number[], targetNum: number): number[] {
   for (let i = 0; i < arr.length - 1; i++) {
     const firstNum = arr[i];
 
-    for (let j = 0; j < arr.length; j++) {
+    for (let j = 1; j < arr.length; j++) {
       const secondNum = arr[j];
       const sum = firstNum + secondNum;
 
