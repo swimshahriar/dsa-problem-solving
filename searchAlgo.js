@@ -6,10 +6,16 @@ class Search {
 
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
-      if (currDictionary[char] === undefined) {
-        currDictionary[char] = {};
+      if (currDictionary['next'] === undefined) {
+        currDictionary['next'] = {};
+        currDictionary['next'][char] = {};
+      } else {
+        if (currDictionary['next'][char] === undefined) {
+          currDictionary['next'][char] = {};
+        }
       }
-      currDictionary = currDictionary[char];
+
+      currDictionary = currDictionary['next'][char];
     }
 
     currDictionary['done'] = true;
@@ -20,9 +26,11 @@ class Search {
 
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
-      if (currDictionary[char] !== undefined) {
-        currDictionary = currDictionary[char];
-      } else return false;
+      if (!currDictionary['next'] || !currDictionary['next'][char]) {
+        return false;
+      } else {
+        currDictionary = currDictionary['next'][char];
+      }
     }
 
     return currDictionary['done'] || false;
@@ -46,8 +54,9 @@ class Search {
 }
 
 const s = new Search();
-s.insert('hi');
+s.insert('hello');
 s.insert('hie');
-s.insert('bi');
-s.delete('be');
-console.log(s.data);
+console.log(s.find('hie'));
+// s.insert('bi');
+// s.delete('be');
+// console.log(s.data);
