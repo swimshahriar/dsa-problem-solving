@@ -41,8 +41,8 @@ class Search {
 
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
-      if (currDictionary[char] !== undefined) {
-        currDictionary = currDictionary[char];
+      if (currDictionary['next'][char] !== undefined) {
+        currDictionary = currDictionary['next'][char];
       } else return console.log('Word is not in dictionary.');
     }
     delete currDictionary['done'];
@@ -56,7 +56,7 @@ class Search {
 const s = new Search();
 s.insert('hello');
 s.insert('hie');
-console.log(s.find('hie'));
-// s.insert('bi');
-// s.delete('be');
-// console.log(s.data);
+s.insert('bi');
+s.delete('bi');
+// console.log(s.find('hie'));
+console.log(s.data);
