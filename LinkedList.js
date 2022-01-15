@@ -41,9 +41,7 @@ class LinkedList {
   // insert at index
   insertAt(data, index) {
     // index out of range
-    if (index > 0 && index > this.size) {
-      return;
-    }
+    if (index < 0 || index > this.size) return;
 
     if (index === 0) {
       this.insertFirst(data);
